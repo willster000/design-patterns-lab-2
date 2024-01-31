@@ -39,7 +39,13 @@ public class UsingLambdas {
 		
 		// Q1: sort the points by their distance from zero,
 		// using a comparator and a lambda
-		
+		Collections.sort(points,
+		(Comparator<Point>) (p1, p2) -> (int) (p1.distanceFromZero() - p2.distanceFromZero()) * 1000);
+
+		System.out.println("Sorted points by distance from zero:");
+		for (int i = 0; i < points.size(); ++i) {
+			System.out.println(points.get(i));
+		}
 		// Q2: Create an array list of 5 strings, use a Comparator
 		// with lambda to sort them by their length.
 		// If two strings have the same length, they are considered 
@@ -47,6 +53,22 @@ public class UsingLambdas {
 		// Note that there is a shortcut for this that is mentioned in 
 		// some tutorials, but I am asking you to follow a slightly longer
 		// syntax above. 
+
+		ArrayList<String> strings = new ArrayList<>();
+		strings.add("This is a string");
+		strings.add("This is a different string");
+		strings.add("This is a g");
+		strings.add("Thig");
+		strings.add("Th");
+
+		Collections.sort(strings,
+		(Comparator<String>) (str1, str2) -> (str1.length() - str2.length()));
+
+		System.out.println("Sorted strings by length:");
+		for (int i = 0; i < strings.size(); ++i) {
+			System.out.println(strings.get(i));
+		}
+
 	}
 
 }
